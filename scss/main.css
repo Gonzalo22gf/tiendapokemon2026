@@ -1,0 +1,108 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  background-color: #0d1117;
+  color: #f0f6fc;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+header {
+  background: #161b22;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+footer {
+  background: #161b22;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(42, 117, 187, 0.25), rgba(255, 203, 5, 0.12));
+  padding: 3rem;
+  border-radius: 12px;
+}
+
+.card-custom {
+  background: #161b22;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+.card-custom:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary-custom {
+  background: #ffcb05;
+  color: #000;
+  border: none;
+  padding: 0.55rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.btn-primary-custom:hover {
+  background: #2a75bb;
+  color: #fff;
+}
+
+/* Empuja el botón al fondo */
+.card-custom .btn-primary-custom {
+  margin-top: auto;
+}
+
+.badge-custom {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.input-dark {
+  background: #161b22;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f0f6fc;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-pill {
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f0f6fc;
+}
+.filter-pill:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.filter-pill.is-active {
+  outline: 2px solid rgba(255, 203, 5, 0.55);
+  background: rgba(255, 203, 5, 0.18);
+}/*# sourceMappingURL=main.css.map */

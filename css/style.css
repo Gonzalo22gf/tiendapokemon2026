@@ -1,0 +1,437 @@
+/* =========================
+FILE: css/style.css (COMPLETO + LIMPIO + MOBILE OK)
+- Mantiene look desktop
+- Mobile optimizado (solo @media)
+- Modal prolijo: imagen completa y fluida
+========================= */
+@charset "UTF-8";
+
+/* --- Reset --- */
+*{ margin:0; padding:0; box-sizing:border-box; }
+html, body{ height:100%; }
+img{ max-width:100%; display:block; }
+
+main{ padding:2rem 0; position:relative; z-index:1; }
+
+footer{
+  background: transparent;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* =========================================================
+   FONDO GLOBAL (imagen + overlay)
+   ========================================================= */
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+  color:#f0f6fc;
+
+  background-image:url("../assets/img/pikachu-bg.jpg");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+
+  background-attachment: fixed; /* desktop */
+  min-height:100vh;
+}
+
+/* Overlay suave */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: rgba(10, 12, 16, 0.18);
+  z-index:-1;
+}
+
+/* Blur liviano SOLO si está soportado */
+@supports (backdrop-filter: blur(1px)){
+  body::before{
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+  }
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: transparent;
+  padding-top: .6rem;
+}
+
+.navbar{
+  padding: .6rem 1rem;
+  background: rgba(18, 20, 26, 0.22);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.25);
+}
+
+@supports (backdrop-filter: blur(1px)){
+  .navbar{
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+.navbar-brand{
+  font-weight: 800;
+  letter-spacing: .4px;
+  color: #fff;
+}
+
+.navbar-nav .nav-link{
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.78);
+  font-weight: 600;
+  padding: .45rem .75rem;
+  border-radius: 12px;
+  transition: background .15s ease, color .15s ease;
+}
+
+.navbar-nav .nav-link:hover{
+  color:#fff;
+  background: rgba(255,255,255,0.07);
+}
+
+.navbar-nav .nav-link.active{
+  color:#f3c316;
+  background: transparent;
+}
+
+.navbar-toggler{ border:none; box-shadow:none; }
+.navbar-toggler-icon{ opacity:.95; filter: brightness(1.1); }
+
+/* =========================================================
+   COMPONENTES GLASS (hero, cards, inputs)
+   ========================================================= */
+.hero,
+.hero-banner{
+  background: rgba(18, 20, 26, 0.30);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 3rem;
+}
+
+@supports (backdrop-filter: blur(1px)){
+  .hero,
+  .hero-banner{
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+.card-custom{
+  background: rgba(10, 12, 16, 0.75);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 1rem;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.20);
+}
+
+@supports (backdrop-filter: blur(1px)){
+  .card-custom{
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+@media (hover:hover) and (pointer:fine){
+  .card-custom:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.28);
+  }
+}
+
+.card-custom p{ color: rgba(255,255,255,0.78); }
+
+/* badges */
+.badge-custom{
+  background: rgba(255,255,255,0.10);
+  padding: .3rem .65rem;
+  border-radius: 999px;
+  font-size: .82rem;
+  color: rgba(255,255,255,0.90);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Botones */
+.btn-primary-custom{
+  background: rgba(243,195,22,0.95);
+  color:#161616;
+  border:none;
+  padding:.55rem 1.6rem;
+  border-radius:12px;
+  font-weight:800;
+  width: fit-content;
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  box-shadow: 0 8px 18px rgba(243,195,22,0.18);
+  margin-top:auto;
+}
+.btn-primary-custom:hover{
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* Inputs */
+.input-dark{
+  background: rgba(18, 20, 26, 0.35);
+  border: 1px solid rgba(255,255,255,0.14);
+  color:#f0f6fc;
+}
+@supports (backdrop-filter: blur(1px)){
+  .input-dark{
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+.input-dark::placeholder{ color: rgba(255,255,255,0.55); }
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:1rem;
+}
+
+/* Links suaves */
+.link-soft{
+  color: rgba(255,255,255,0.78);
+  text-decoration:none;
+  font-weight:700;
+  padding:.15rem .35rem;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.08);
+  background: rgba(18,20,26,0.30);
+}
+.link-soft:hover{ color:#fff; background: rgba(255,255,255,0.08); }
+
+/* Pills */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  padding:.28rem .7rem;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.9rem;
+  background: rgba(18,20,26,0.40);
+  border:1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.92);
+}
+
+/* =========================================================
+   IMÁGENES (INDEX + GRID)
+   ========================================================= */
+.card-media{
+  width:100%;
+  height: 260px;
+  border-radius:14px;
+  overflow:hidden;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display:grid;
+  place-items:center;
+}
+.card-media > img{
+  width:100%;
+  height:100%;
+  object-fit: contain;
+}
+
+/* Miniaturas cartas (cartas.html) */
+.card-thumb{
+  width:100%;
+  height:260px;
+  border-radius:14px;
+  overflow:hidden;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  object-fit: contain;
+}
+
+/* Hover suave solo desktop */
+@media (hover:hover) and (pointer:fine){
+  .card-media > img{ transition: transform .18s ease, filter .18s ease; }
+  .card-custom:hover .card-media > img{
+    filter: brightness(1.03);
+    transform: scale(1.01);
+  }
+}
+
+/* =========================================================
+   FILTROS (cartas.html)
+   ========================================================= */
+.filters-panel{
+  background: rgba(12, 14, 18, 0.55);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+@supports (backdrop-filter: blur(1px)){
+  .filters-panel{
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+.form-label{
+  color: rgba(255,255,255,0.88);
+  font-weight:700;
+}
+.form-select.input-dark,
+.form-select{
+  background: rgba(18,20,26,0.85);
+  color:#fff;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.filter-pill{
+  border:0;
+  cursor:pointer;
+  background: rgba(18,20,26,0.75);
+  color: rgba(255,255,255,0.88);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: .35rem .7rem;
+  border-radius:999px;
+  transition: background .15s ease, outline .15s ease, transform .12s ease;
+}
+.filter-pill:hover{
+  background: rgba(255,255,255,0.12);
+  color:#fff;
+  transform: translateY(-1px);
+}
+.filter-pill.is-active{
+  background: rgba(243,195,22,0.25);
+  outline: 2px solid rgba(243,195,22,0.55);
+  color:#fff;
+}
+.filters-meta{
+  color: rgba(255,255,255,0.75);
+  font-weight:700;
+  font-size:.95rem;
+}
+.btn-soft{
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(18,20,26,0.55);
+  color: rgba(255,255,255,0.85);
+  padding: .35rem .7rem;
+  border-radius: 12px;
+  font-weight:700;
+  transition: background .15s ease, transform .12s ease;
+}
+.btn-soft:hover{
+  background: rgba(255,255,255,0.10);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   MODAL (Bootstrap) — estable (sin “trabas”)
+   ========================================================= */
+.modal-dark{
+  background: rgba(18, 20, 26, 0.92);
+  color:#fff;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.modal-card{ max-width: 560px; }
+
+.modal-card-img{
+  width: 100%;
+  max-height: 70vh;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+/* Capas correctas */
+.modal{ z-index:2050 !important; }
+.modal-backdrop{ z-index:2040 !important; }
+.modal-backdrop.show{ opacity:0.65; }
+
+/* En mobile: que el modal entre bien y sea scrollable */
+@media (max-width: 768px){
+  .modal-dialog{ margin: .75rem; }
+
+  .modal-content{
+    max-height: calc(100vh - 1.5rem);
+    overflow: hidden;
+  }
+
+  .modal-body{
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* =========================================================
+   LISTAS (comunidad)
+   ========================================================= */
+.steps-list{ margin-left: 1.2rem; }
+.steps-list li{ margin-bottom:.6rem; line-height:1.45; }
+
+/* =========================================================
+   FALLBACK sin blur
+   ========================================================= */
+@supports not (backdrop-filter: blur(1px)){
+  .navbar, .card-custom, .hero, .hero-banner, .input-dark, .filters-panel{
+    background: rgba(18,20,26,0.55);
+  }
+}
+
+/* =========================================================
+   PERFORMANCE + BACKGROUND RESPONSIVE (MOBILE/TABLET)
+   ========================================================= */
+@media (max-width: 768px){
+  body{
+    background-attachment: scroll !important;
+    background-position: 70% center;
+  }
+  body::before{
+    background: rgba(10, 12, 16, 0.30);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  .navbar, .card-custom, .hero, .hero-banner, .input-dark, .filters-panel{
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  main{ padding: 1.25rem 0; }
+  .hero, .hero-banner{ padding: 1.25rem; }
+
+  .row{ --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
+
+  .card-media{ height: clamp(190px, 58vw, 260px); }
+  .card-thumb{ height: clamp(190px, 58vw, 260px); }
+
+  .btn-primary-custom{ padding: .5rem 1.2rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+  body{ background-position: 60% center; }
+}
+
+/* =========================================================
+   FIX: si AOS NO se inicializa (mobile), que no oculte nada
+   ========================================================= */
+@media (max-width: 768px){
+  [data-aos]{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

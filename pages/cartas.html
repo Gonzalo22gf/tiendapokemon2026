@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cartas | PokéCards</title>
+  <meta name="description" content="Catálogo de cartas Pokémon TCG: buscá por nombre y filtrá por set, tipo y rareza." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://unpkg.com" />
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-dark container py-3">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#menuLateral"
+      aria-controls="menuLateral"
+      aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand fw-bold ms-3" href="../index.html">PokéCards</a>
+  </nav>
+</header>
+
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="menuLateralLabel">Menú</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav gap-3 fs-5">
+      <li class="nav-item"><a class="nav-link" href="../index.html">🏠 Inicio</a></li>
+      <li class="nav-item"><a class="nav-link active" href="cartas.html">🎴 Cartas</a></li>
+      <li class="nav-item"><a class="nav-link" href="sets.html">📦 Sets</a></li>
+      <li class="nav-item"><a class="nav-link" href="comunidad.html">💬 Comunidad</a></li>
+      <li class="nav-item"><a class="nav-link" href="contacto.html">✉️ Contacto</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="container">
+
+  <section class="hero mt-4 p-4 p-md-5" data-aos="fade-up">
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+      <div>
+        <h1 class="mb-2">Catálogo de cartas</h1>
+        <p class="mb-0">Buscá por nombre y filtrá por set, tipo y rareza (funcional).</p>
+      </div>
+      <a class="btn-primary-custom text-decoration-none" href="sets.html">Ver sets</a>
+    </div>
+  </section>
+
+  <section class="mt-4 filters-panel" data-aos="fade-up" data-aos-delay="100">
+    <div class="row g-3 align-items-end">
+
+      <div class="col-md-4">
+        <label class="form-label" for="search">Buscar</label>
+        <input
+          id="search"
+          class="form-control input-dark"
+          type="text"
+          placeholder="Ej: Pikachu, Charizard, Mew..."
+          aria-label="Buscar carta por nombre"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label" for="tipo">Tipo</label>
+        <select id="tipo" class="form-select input-dark" aria-label="Filtrar por tipo">
+          <option value="all" selected>Todos</option>
+          <option value="fuego">Fuego</option>
+          <option value="agua">Agua</option>
+          <option value="planta">Planta</option>
+          <option value="electrico">Eléctrico</option>
+          <option value="psiquico">Psíquico</option>
+          <option value="lucha">Lucha</option>
+          <option value="dragon">Dragón</option>
+          <option value="oscuridad">Oscuridad</option>
+          <option value="metal">Metal</option>
+          <option value="normal">Normal</option>
+        </select>
+      </div>
+
+      <div class="col-md-5">
+        <label class="form-label d-block">Rareza</label>
+        <div class="d-flex flex-wrap gap-2" id="rarezaFilters" aria-label="Filtro por rareza">
+          <button type="button" class="badge-custom filter-pill is-active" data-rareza="all">Todas</button>
+          <button type="button" class="badge-custom filter-pill" data-rareza="comun">Común</button>
+          <button type="button" class="badge-custom filter-pill" data-rareza="rara">Rara</button>
+          <button type="button" class="badge-custom filter-pill" data-rareza="ultra">Ultra</button>
+          <button type="button" class="badge-custom filter-pill" data-rareza="secreta">Secreta</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <label class="form-label d-block">Set</label>
+      <div class="d-flex flex-wrap gap-2" id="setFilters" aria-label="Filtro por set">
+        <button type="button" class="badge-custom filter-pill is-active" data-set="all">Todos</button>
+        <button type="button" class="badge-custom filter-pill" data-set="sv151">Scarlet &amp; Violet — 151</button>
+        <button type="button" class="badge-custom filter-pill" data-set="paldea">Scarlet &amp; Violet — Paldea Evolved</button>
+        <button type="button" class="badge-custom filter-pill" data-set="crown">Sword &amp; Shield — Crown Zenith</button>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+      <span class="filters-meta" id="resultsCount">Mostrando: —</span>
+      <button type="button" class="btn-soft" id="clearFilters">Limpiar filtros</button>
+    </div>
+  </section>
+
+  <section class="mt-4" data-aos="fade-up">
+    <div class="row g-4">
+
+      <!-- SV151 -->
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="pikachu" data-tipo="electrico" data-rareza="rara" data-set="sv151">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb"
+               src="../assets/img/pikachu151.jpg.png"
+               alt="Miniatura Pikachu" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Pikachu</h2><span class="badge-custom">Rara</span>
+          <p class="mb-3">Tipo: Eléctrico • Set: 151</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Pikachu" data-type="Eléctrico" data-setname="151" data-rareza="Rara"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="charizard" data-tipo="fuego" data-rareza="ultra" data-set="sv151">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb"
+               src="../assets/img/charizard151.jpg"
+               alt="Miniatura Charizard" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Charizard</h2><span class="badge-custom">Ultra</span>
+          <p class="mb-3">Tipo: Fuego • Set: 151</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Charizard" data-type="Fuego" data-setname="151" data-rareza="Ultra"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="mew" data-tipo="psiquico" data-rareza="secreta" data-set="sv151">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb"
+               src="../assets/img/new151.jpg"
+               alt="Miniatura Mew" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Mew</h2><span class="badge-custom">Secreta</span>
+          <p class="mb-3">Tipo: Psíquico • Set: 151</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Mew" data-type="Psíquico" data-setname="151" data-rareza="Secreta"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="bulbasaur" data-tipo="planta" data-rareza="comun" data-set="sv151">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb"
+               src="../assets/img/bulbasaur151.jpg"
+               alt="Miniatura Bulbasaur" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Bulbasaur</h2><span class="badge-custom">Común</span>
+          <p class="mb-3">Tipo: Planta • Set: 151</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Bulbasaur" data-type="Planta" data-setname="151" data-rareza="Común"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <!-- Paldea -->
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="miraidon" data-tipo="electrico" data-rareza="ultra" data-set="paldea">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb" src="../assets/img/miraidon.jpg" alt="Miniatura Miraidon" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Miraidon</h2><span class="badge-custom">Ultra</span>
+          <p class="mb-3">Tipo: Eléctrico • Set: Paldea Evolved</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Miraidon" data-type="Eléctrico" data-setname="Paldea Evolved" data-rareza="Ultra"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="koraidon" data-tipo="lucha" data-rareza="ultra" data-set="paldea">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb" src="../assets/img/koraidon.jpg" alt="Miniatura Koraidon" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Koraidon</h2><span class="badge-custom">Ultra</span>
+          <p class="mb-3">Tipo: Lucha • Set: Paldea Evolved</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Koraidon" data-type="Lucha" data-setname="Paldea Evolved" data-rareza="Ultra"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="tinkaton" data-tipo="metal" data-rareza="rara" data-set="paldea">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb" src="../assets/img/tinkaton.jpg" alt="Miniatura Tinkaton" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Tinkaton</h2><span class="badge-custom">Rara</span>
+          <p class="mb-3">Tipo: Metal • Set: Paldea Evolved</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Tinkaton" data-type="Metal" data-setname="Paldea Evolved" data-rareza="Rara"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="sprigatito" data-tipo="planta" data-rareza="comun" data-set="paldea">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb" src="../assets/img/sprigatito.jpg" alt="Miniatura Sprigatito" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Sprigatito</h2><span class="badge-custom">Común</span>
+          <p class="mb-3">Tipo: Planta • Set: Paldea Evolved</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Sprigatito" data-type="Planta" data-setname="Paldea Evolved" data-rareza="Común"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <!-- Crown -->
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="zacian" data-tipo="metal" data-rareza="ultra" data-set="crown">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb" src="../assets/img/zacian.jpg" alt="Miniatura Zacian" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Zacian</h2><span class="badge-custom">Ultra</span>
+          <p class="mb-3">Tipo: Metal • Set: Crown Zenith</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Zacian" data-type="Metal" data-setname="Crown Zenith" data-rareza="Ultra"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="rayquaza" data-tipo="dragon" data-rareza="ultra" data-set="crown">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb" src="../assets/img/rayquaza.jpg" alt="Miniatura Rayquaza" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Rayquaza</h2><span class="badge-custom">Ultra</span>
+          <p class="mb-3">Tipo: Dragón • Set: Crown Zenith</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Rayquaza" data-type="Dragón" data-setname="Crown Zenith" data-rareza="Ultra"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="leafeon" data-tipo="planta" data-rareza="rara" data-set="crown">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb" src="../assets/img/laefon.jpg" alt="Miniatura Leafeon" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Leafeon</h2><span class="badge-custom">Rara</span>
+          <p class="mb-3">Tipo: Planta • Set: Crown Zenith</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Leafeon" data-type="Planta" data-setname="Crown Zenith" data-rareza="Rara"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="mewtwo" data-tipo="psiquico" data-rareza="rara" data-set="crown">
+        <div class="card-custom h-100">
+          <img class="card-thumb mb-3 js-thumb" src="../assets/img/newtwo.jpg" alt="Miniatura Mewtwo" loading="lazy" decoding="async" width="600" height="400" />
+          <h2 class="h5 mb-1">Mewtwo</h2><span class="badge-custom">Rara</span>
+          <p class="mb-3">Tipo: Psíquico • Set: Crown Zenith</p>
+          <button type="button" class="btn-primary-custom btn-detail"
+                  data-bs-toggle="modal" data-bs-target="#cardModal"
+                  data-name="Mewtwo" data-type="Psíquico" data-setname="Crown Zenith" data-rareza="Rara"
+                  data-img="">
+            Ver detalle
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- MODAL DETALLE -->
+  <div class="modal fade" id="cardModal"
+      tabindex="-1" aria-hidden="true"
+      data-bs-backdrop="true" data-bs-keyboard="true"
+      data-bs-focus="false">
+
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-card">
+      <div class="modal-content modal-dark">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Detalle</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img id="modalImg"
+               class="modal-card-img mb-3"
+               alt="Carta en grande"
+               loading="lazy"
+               decoding="async"
+               width="900"
+               height="600" />
+
+          <div class="card-custom h-100 mb-0">
+            <h2 class="h5 mb-1" id="modalName">—</h2>
+            <span class="badge-custom" id="modalRareza">—</span>
+            <p class="mb-0 mt-2" id="modalMeta">—</p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p class="mb-0">Proyecto educativo • PokéCards • Pokémon TCG</p>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // AOS solo desktop
+    const enableAOS = !isMobile && !prefersReduce;
+    if (enableAOS && window.AOS) {
+      AOS.init({ duration: 500, once: true, offset: 60 });
+    }
+
+    const offcanvasEl = document.getElementById("menuLateral");
+    if (offcanvasEl && enableAOS) {
+      offcanvasEl.addEventListener("shown.bs.offcanvas", () => AOS.refresh());
+    }
+
+    // Placeholder embebido
+    const PLACEHOLDER = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+      <svg xmlns='http://www.w3.org/2000/svg' width='900' height='600'>
+        <defs>
+          <linearGradient id='g' x1='0' x2='1' y1='0' y2='1'>
+            <stop offset='0' stop-color='#0b0d10'/>
+            <stop offset='1' stop-color='#151a22'/>
+          </linearGradient>
+        </defs>
+        <rect width='100%' height='100%' fill='url(#g)'/>
+        <circle cx='450' cy='270' r='60' fill='rgba(255,255,255,0.10)'/>
+        <text x='50%' y='55%' fill='rgba(255,255,255,0.75)' font-family='system-ui,Segoe UI,Roboto,Arial' font-size='34' text-anchor='middle'>Imagen no cargada</text>
+        <text x='50%' y='62%' fill='rgba(255,255,255,0.45)' font-family='system-ui,Segoe UI,Roboto,Arial' font-size='18' text-anchor='middle'>(Placeholder)</text>
+      </svg>
+    `)}`;
+
+    // Miniaturas: si src vacío o falla => placeholder
+    document.querySelectorAll(".js-thumb").forEach(img => {
+      const src = (img.getAttribute("src") || "").trim();
+      if (!src) img.src = PLACEHOLDER;
+      img.addEventListener("error", () => { img.src = PLACEHOLDER; }, { once: true });
+    });
+
+    // FILTROS
+    const searchInput  = document.getElementById("search");
+    const tipoSelect   = document.getElementById("tipo");
+    const cards        = Array.from(document.querySelectorAll(".card-item"));
+    const rarezaWrap   = document.getElementById("rarezaFilters");
+    const setWrap      = document.getElementById("setFilters");
+    const resultsCount = document.getElementById("resultsCount");
+    const clearBtn     = document.getElementById("clearFilters");
+
+    let selectedRareza = "all";
+    let selectedSet    = "all";
+
+    function normalize(str) {
+      return (str || "")
+        .toString()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function applyFilters() {
+      const q = normalize(searchInput.value.trim());
+      const tipo = tipoSelect.value;
+
+      let visible = 0;
+
+      for (const card of cards) {
+        const name = normalize(card.dataset.name);
+        const tipoCard = card.dataset.tipo;
+        const rarezaCard = card.dataset.rareza;
+        const setCard = card.dataset.set;
+
+        const show =
+          (q === "" || name.includes(q)) &&
+          (tipo === "all" || tipoCard === tipo) &&
+          (selectedRareza === "all" || rarezaCard === selectedRareza) &&
+          (selectedSet === "all" || setCard === selectedSet);
+
+        card.style.display = show ? "" : "none";
+        if (show) visible++;
+      }
+
+      if (resultsCount) resultsCount.textContent = `Mostrando: ${visible} carta(s)`;
+    }
+
+    searchInput.addEventListener("input", applyFilters, { passive: true });
+    tipoSelect.addEventListener("change", applyFilters);
+
+    rarezaWrap.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-rareza]");
+      if (!btn) return;
+      selectedRareza = btn.dataset.rareza;
+      rarezaWrap.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      applyFilters();
+    });
+
+    setWrap.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-set]");
+      if (!btn) return;
+      selectedSet = btn.dataset.set;
+      setWrap.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      applyFilters();
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const setFromUrl = params.get("set");
+    if (setFromUrl) {
+      selectedSet = setFromUrl;
+      const btn = setWrap.querySelector(`button[data-set="${setFromUrl}"]`);
+      if (btn) {
+        setWrap.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+      }
+    }
+
+    clearBtn?.addEventListener("click", () => {
+      searchInput.value = "";
+      tipoSelect.value = "all";
+      selectedRareza = "all";
+      selectedSet = "all";
+
+      rarezaWrap.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("is-active"));
+      rarezaWrap.querySelector(`button[data-rareza="all"]`)?.classList.add("is-active");
+
+      setWrap.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("is-active"));
+      setWrap.querySelector(`button[data-set="all"]`)?.classList.add("is-active");
+
+      applyFilters();
+    });
+
+    // ✅ MODAL: cargar contenido SOLO en show.bs.modal (Bootstrap maneja cerrar/abrir)
+    const modalEl = document.getElementById("cardModal");
+    const modalTitle  = document.getElementById("modalTitle");
+    const modalName   = document.getElementById("modalName");
+    const modalRareza = document.getElementById("modalRareza");
+    const modalMeta   = document.getElementById("modalMeta");
+    const modalImg    = document.getElementById("modalImg");
+
+    modalEl?.addEventListener("show.bs.modal", (ev) => {
+      const btn = ev.relatedTarget;
+      if (!btn) return;
+
+      const card = btn.closest(".card-custom");
+      const thumb = card?.querySelector("img.js-thumb");
+
+      const name = btn.dataset.name || "—";
+      const type = btn.dataset.type || "—";
+      const set  = btn.dataset.setname || "—";
+      const rar  = btn.dataset.rareza || "—";
+
+      const imgFromBtn = (btn.dataset.img || "").trim();
+      const imgFromThumb = (thumb?.getAttribute("src") || "").trim();
+      const imgSrc = imgFromBtn || imgFromThumb || PLACEHOLDER;
+
+      modalTitle.textContent = name;
+      modalName.textContent = name;
+      modalRareza.textContent = rar;
+      modalMeta.textContent = `Tipo: ${type} • Set: ${set}`;
+
+      modalImg.src = imgSrc;
+      modalImg.alt = `Carta ${name} en grande`;
+      modalImg.onerror = () => { modalImg.src = PLACEHOLDER; };
+    });
+
+    applyFilters();
+  });
+</script>
+
+</body>
+</html>

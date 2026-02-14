@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  background-color: $bg-main;
+  color: $text-main;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

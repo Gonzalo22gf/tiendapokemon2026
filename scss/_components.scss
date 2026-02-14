@@ -1,0 +1,68 @@
+.card-custom {
+  background: $bg-card;
+  border-radius: $radius;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  }
+}
+
+.btn-primary-custom {
+  background: $primary;
+  color: #000;
+  border: none;
+  padding: .55rem 1.6rem;
+  border-radius: $radius;
+  font-weight: 600;
+  transition: $transition;
+  width: fit-content;
+
+  &:hover {
+    background: $secondary;
+    color: #fff;
+  }
+}
+
+/* Empuja el botón al fondo */
+.card-custom .btn-primary-custom {
+  margin-top: auto;
+}
+
+.badge-custom {
+  background: rgba(255,255,255,.1);
+  padding: .3rem .6rem;
+  border-radius: 999px;
+  font-size: .8rem;
+}
+
+.input-dark {
+  background: $bg-card;
+  border: 1px solid rgba(255,255,255,.15);
+  color: $text-main;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.filter-pill {
+  border: 0;
+  cursor: pointer;
+  background: rgba(255,255,255,.1);
+  color: $text-main;
+
+  &:hover { background: rgba(255,255,255,.16); }
+}
+
+.filter-pill.is-active {
+  outline: 2px solid rgba(255,203,5,.55);
+  background: rgba(255,203,5,.18);
+}

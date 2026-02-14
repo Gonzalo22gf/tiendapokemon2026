@@ -1,0 +1,166 @@
+<!-- =========================
+FILE: pages/comunidad.html (COMPLETO + MÁS FLUIDO)
+- ✅ Menú hamburguesa lateral (offcanvas)
+- ✅ AOS optimizado: SOLO desktop + respeta "reduce motion"
+- ✅ Preconnect para CDN
+- ✅ JS liviano (sin trabajo extra en mobile)
+========================= -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Comunidad | PokéCards</title>
+  <meta name="description" content="Guías rápidas, noticias y eventos de la comunidad Pokémon TCG. Aprende a jugar paso a paso." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-dark container py-3">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#menuLateral"
+      aria-controls="menuLateral"
+      aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand fw-bold ms-3" href="../index.html">PokéCards</a>
+  </nav>
+</header>
+
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="menuLateralLabel">Menú</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav gap-3 fs-5">
+      <li class="nav-item"><a class="nav-link" href="../index.html">🏠 Inicio</a></li>
+      <li class="nav-item"><a class="nav-link" href="cartas.html">🎴 Cartas</a></li>
+      <li class="nav-item"><a class="nav-link" href="sets.html">📦 Sets</a></li>
+      <li class="nav-item"><a class="nav-link active" href="comunidad.html">💬 Comunidad</a></li>
+      <li class="nav-item"><a class="nav-link" href="contacto.html">✉️ Contacto</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="container">
+
+  <section class="hero mt-4 p-4 p-md-5" data-aos="fade-up">
+    <h1 class="mb-2">Comunidad Pokémon TCG</h1>
+    <p class="mb-0">Guías rápidas, noticias y eventos para jugadores y coleccionistas.</p>
+  </section>
+
+  <section class="mt-4">
+    <article class="card-custom" data-aos="fade-up">
+      <h2 class="h3 mb-2">Guía rápida: cómo empezar en Pokémon TCG</h2>
+
+      <p class="mb-3">
+        Elegí un mazo simple, aprendé las fases del turno y practicá.
+        Esta es una ruta corta para empezar a jugar sin complicarte.
+      </p>
+
+      <h3 class="h5 mt-3">Pasos para empezar a jugar (Fácil):</h3>
+      <ol class="steps-list">
+        <li><strong>Baraja y saca 7 cartas:</strong> Ambos jugadores barajan sus mazos y roban 7 cartas.</li>
+        <li><strong>Pokémon Básico:</strong> Colocá un Pokémon Básico en el puesto activo y hasta 5 en la banca.</li>
+        <li><strong>Cartas de Premio:</strong> Colocá 6 cartas boca abajo como premios.</li>
+        <li><strong>Comienza el juego:</strong> Robá, bajá cartas, uní 1 energía por turno y atacá.</li>
+        <li><strong>Ganar la partida:</strong> Conseguí 6 premios o dejá al rival sin Pokémon.</li>
+      </ol>
+
+      <h3 class="h5 mt-4">Acciones clave en el turno:</h3>
+      <ul class="steps-list">
+        <li><strong>Evolucionar:</strong> Si tenés la carta en mano.</li>
+        <li><strong>Energía:</strong> Solo 1 energía por turno.</li>
+        <li><strong>Retirada:</strong> Cambiá el activo pagando el costo.</li>
+      </ul>
+
+      <p class="mt-3"><strong>Consejo:</strong> Empezá con un mazo preconstruido.</p>
+
+      <div class="d-flex flex-wrap gap-2 mt-4">
+        <a href="cartas.html" class="btn-primary-custom text-decoration-none">Ver cartas recomendadas</a>
+        <a href="sets.html" class="btn-primary-custom text-decoration-none">Ver sets</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="mt-5">
+    <h2 class="h3 mb-3" data-aos="fade-up">Tips y novedades</h2>
+
+    <div class="row g-4" data-aos="fade-up">
+      <article class="col-12 col-md-6 col-lg-4">
+        <div class="card-custom h-100">
+          <h3 class="h5 mb-2">Cómo proteger tu colección</h3>
+          <p>Usá fundas, toploaders y mantené las cartas lejos de la humedad.</p>
+          <a href="contacto.html" class="btn-primary-custom text-decoration-none">Consultar</a>
+        </div>
+      </article>
+
+      <article class="col-12 col-md-6 col-lg-4">
+        <div class="card-custom h-100">
+          <h3 class="h5 mb-2">Mazos más consistentes</h3>
+          <p>Reducí cartas situacionales y sumá cartas de soporte.</p>
+          <a href="cartas.html" class="btn-primary-custom text-decoration-none">Ver cartas</a>
+        </div>
+      </article>
+
+      <article class="col-12 col-md-6 col-lg-4">
+        <div class="card-custom h-100">
+          <h3 class="h5 mb-2">Arte alternativo</h3>
+          <p>Por qué algunas cartas son tan buscadas por coleccionistas.</p>
+          <a href="sets.html" class="btn-primary-custom text-decoration-none">Ver sets</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="mb-0">Proyecto educativo • PokéCards • Pokémon TCG</p>
+</footer>
+
+<!-- JS -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // ✅ AOS solo si vale la pena (desktop + sin reduce motion)
+    const enableAOS = !isMobile && !prefersReduce;
+
+    if (enableAOS && window.AOS) {
+      AOS.init({
+        duration: 500,
+        once: true,
+        offset: 60
+      });
+
+      const offcanvasEl = document.getElementById("menuLateral");
+      if (offcanvasEl) offcanvasEl.addEventListener("shown.bs.offcanvas", () => AOS.refresh());
+    }
+  });
+</script>
+
+</body>
+</html>

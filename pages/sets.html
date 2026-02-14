@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sets | PokéCards</title>
+  <meta name="description" content="Sets y expansiones de Pokémon TCG. Elegí un set para ver sus cartas destacadas." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <style>
+    .sets-narrow{ max-width: 920px; margin-inline: auto; }
+
+    .card-custom.set-card{
+      padding: .9rem;
+      border-radius: 14px;
+    }
+
+    /* ✅ La imagen ahora “se estira” para llenar el espacio */
+    .set-cover{
+      width: 100%;
+      height: clamp(280px, 28vw, 420px);
+      object-fit: cover;            /* 🔥 llena todo */
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      display: block;
+      background: rgba(0,0,0,0.18);
+    }
+
+    @media (max-width: 768px){
+      .set-cover{ height: clamp(260px, 80vw, 420px); }
+    }
+
+    @media (min-width: 992px){
+      .sets-row{ align-items: stretch; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-dark container py-3">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral"
+      aria-controls="menuLateral" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand fw-bold ms-3" href="../index.html">PokéCards</a>
+  </nav>
+</header>
+
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="menuLateralLabel">Menú</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav gap-3 fs-5">
+      <li class="nav-item"><a class="nav-link" href="../index.html">🏠 Inicio</a></li>
+      <li class="nav-item"><a class="nav-link" href="cartas.html">🎴 Cartas</a></li>
+      <li class="nav-item"><a class="nav-link active" href="sets.html">📦 Sets</a></li>
+      <li class="nav-item"><a class="nav-link" href="comunidad.html">💬 Comunidad</a></li>
+      <li class="nav-item"><a class="nav-link" href="contacto.html">✉️ Contacto</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="container">
+  <section class="hero mt-4 p-4 p-md-5 sets-narrow" data-aos="fade-up">
+    <div>
+      <h1 class="mb-2">Sets y expansiones</h1>
+      <p class="mb-0">Colecciones destacadas con una descripción breve para mejorar SEO y navegación.</p>
+    </div>
+  </section>
+
+  <section class="mt-4 sets-narrow" data-aos="fade-up">
+    <div class="row g-3 sets-row">
+      <article class="col-12 col-md-6 col-lg-4">
+        <div class="card-custom set-card h-100">
+          <img class="set-cover mb-3" src="../assets/img/151.jpg"
+               alt="Portada Scarlet &amp; Violet 151" loading="lazy" decoding="async" />
+          <h2 class="h5 mb-2">Scarlet &amp; Violet — 151</h2>
+          <p class="mb-3">Set centrado en Kanto y Pokémon clásicos. Ideal para coleccionistas por sus ilustraciones.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge-custom">Año: 2023</span>
+            <span class="badge-custom">Enfoque: Kanto</span>
+            <span class="badge-custom">Rarezas: altas</span>
+          </div>
+          <a class="btn-primary-custom text-decoration-none" href="cartas.html?set=sv151">Ver cartas</a>
+        </div>
+      </article>
+
+      <article class="col-12 col-md-6 col-lg-4">
+        <div class="card-custom set-card h-100">
+          <img class="set-cover mb-3" src="../assets/img/paldea-envolved.jpg"
+               alt="Portada Scarlet &amp; Violet Paldea Evolved" loading="lazy" decoding="async" />
+          <h2 class="h5 mb-2">Scarlet &amp; Violet — Paldea Evolved</h2>
+          <p class="mb-3">Expansión enfocada en Paldea con cartas competitivas y variedad de tipos.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge-custom">Año: 2023</span>
+            <span class="badge-custom">Enfoque: Paldea</span>
+            <span class="badge-custom">Meta: competitivo</span>
+          </div>
+          <a class="btn-primary-custom text-decoration-none" href="cartas.html?set=paldea">Ver cartas</a>
+        </div>
+      </article>
+
+      <article class="col-12 col-md-6 col-lg-4">
+        <div class="card-custom set-card h-100">
+          <img class="set-cover mb-3" src="../assets/img/swordyshield.jpg"
+               alt="Portada Sword &amp; Shield Crown Zenith" loading="lazy" decoding="async" />
+          <h2 class="h5 mb-2">Sword &amp; Shield — Crown Zenith</h2>
+          <p class="mb-3">Set especial con cartas brillantes y arte alternativo. Muy buscado por coleccionistas.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge-custom">Año: 2023</span>
+            <span class="badge-custom">Especial</span>
+            <span class="badge-custom">Arte alternativo</span>
+          </div>
+          <a class="btn-primary-custom text-decoration-none" href="cartas.html?set=crown">Ver cartas</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="mb-0">Proyecto educativo • PokéCards • Pokémon TCG</p>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const enableAOS = !isMobile && !prefersReduce;
+
+    if (enableAOS && window.AOS) {
+      AOS.init({ duration: 500, once: true, offset: 60 });
+      const offcanvasEl = document.getElementById("menuLateral");
+      if (offcanvasEl) offcanvasEl.addEventListener("shown.bs.offcanvas", () => AOS.refresh());
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>PokéCards | Pokémon TCG</title>
+  <meta name="description" content="PokéCards: catálogo y comunidad Pokémon TCG. Explorá cartas, sets, tips y novedades con estilo gamer. Proyecto educativo." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://unpkg.com" />
+
+  <style>
+    .card-media--featured{
+      width: 100%;
+      height: clamp(160px, 22vw, 240px);
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+      padding: 6px;
+    }
+    .card-media--featured img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-dark container py-3">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral"
+      aria-controls="menuLateral" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand fw-bold ms-3" href="index.html">PokéCards</a>
+  </nav>
+</header>
+
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="menuLateralLabel">Menú</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav gap-3 fs-5">
+      <li class="nav-item"><a class="nav-link active" href="index.html">🏠 Inicio</a></li>
+      <li class="nav-item"><a class="nav-link" href="pages/cartas.html">🎴 Cartas</a></li>
+      <li class="nav-item"><a class="nav-link" href="pages/sets.html">📦 Sets</a></li>
+      <li class="nav-item"><a class="nav-link" href="pages/comunidad.html">💬 Comunidad</a></li>
+      <li class="nav-item"><a class="nav-link" href="pages/contacto.html">✉️ Contacto</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="container">
+  <section class="hero-banner mt-4" data-aos="fade-up">
+    <div class="hero-inner">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-7">
+          <div class="d-flex flex-wrap gap-2 mb-3" data-aos="fade-up" data-aos-delay="80">
+            <span class="pill">🎴 Catálogo</span>
+            <span class="pill">⚡ Comunidad</span>
+            <span class="pill">🛡️ Tips</span>
+          </div>
+
+          <h1 class="mb-3" data-aos="fade-up" data-aos-delay="120">Tu hub de Pokémon TCG</h1>
+
+          <p class="mb-4" data-aos="fade-up" data-aos-delay="160">
+            Explorá cartas, descubrí sets y aprendé tips para jugar mejor.
+            Diseño gamer inspirado en tiendas modernas (proyecto educativo).
+          </p>
+
+          <div class="d-flex flex-column flex-sm-row gap-2" data-aos="fade-up" data-aos-delay="200">
+            <a href="pages/cartas.html" class="btn-primary-custom text-decoration-none">Ver cartas</a>
+            <a href="pages/sets.html" class="btn-primary-custom text-decoration-none">Explorar sets</a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5" data-aos="fade-up" data-aos-delay="150">
+          <div class="card-custom">
+            <h2 class="h4 mb-2">Destacado de la semana</h2>
+            <p class="mb-3">Selección ficticia para mostrar contenido y secciones del sitio.</p>
+
+            <div class="card-media--featured mb-3">
+              <img src="assets/img/phantasmal-flames3.jpg"
+                   alt="Ilustración destacada"
+                   loading="lazy" decoding="async" width="900" height="600" />
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <a class="link-soft" href="pages/cartas.html">Ver catálogo →</a>
+              <a class="link-soft" href="pages/comunidad.html">Leer tips →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="section-title">
+      <h2 class="h3">Categorías</h2>
+      <a class="link-soft" href="pages/cartas.html">Ver todo →</a>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card-custom h-100">
+          <h3 class="h5 mb-2">Cartas por tipo</h3>
+          <p class="mb-3">Fuego, Agua, Planta, Eléctrico y más.</p>
+          <a class="btn-primary-custom text-decoration-none" href="pages/cartas.html">Explorar</a>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card-custom h-100">
+          <h3 class="h5 mb-2">Sets populares</h3>
+          <p class="mb-3">Expansiones destacadas con descripciones SEO.</p>
+          <a class="btn-primary-custom text-decoration-none" href="pages/sets.html">Ver sets</a>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card-custom h-100">
+          <h3 class="h5 mb-2">Guías rápidas</h3>
+          <p class="mb-3">Tips para empezar y mejorar tu mazo.</p>
+          <a class="btn-primary-custom text-decoration-none" href="pages/comunidad.html">Leer</a>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+        <div class="card-custom h-100">
+          <h3 class="h5 mb-2">Contacto</h3>
+          <p class="mb-3">Consultas sobre cartas, cuidado y eventos.</p>
+          <a class="btn-primary-custom text-decoration-none" href="pages/contacto.html">Escribir</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-4">
+    <div class="section-title" data-aos="fade-up">
+      <h2 class="h3">Destacados</h2>
+      <span class="badge-custom">Nuevo</span>
+    </div>
+
+    <div class="row g-4">
+      <article class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card-custom h-100">
+          <div class="card-media mb-3">
+            <img src="assets/img/pikachu151.jpg.png" alt="Carta destacada Pikachu"
+                 loading="lazy" decoding="async" width="600" height="400" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h3 class="h5 mb-1">Pikachu</h3>
+            <span class="badge-custom">Rara</span>
+          </div>
+          <p class="mb-3">Tipo: Eléctrico • Set: 151</p>
+          <a href="pages/cartas.html" class="btn-primary-custom text-decoration-none">Ver más</a>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card-custom h-100">
+          <div class="card-media mb-3">
+            <img src="assets/img/charizard151.jpg" alt="Carta destacada Charizard"
+                 loading="lazy" decoding="async" width="600" height="400" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h3 class="h5 mb-1">Charizard</h3>
+            <span class="badge-custom">Ultra</span>
+          </div>
+          <p class="mb-3">Tipo: Fuego • Set: 151</p>
+          <a href="pages/cartas.html" class="btn-primary-custom text-decoration-none">Ver más</a>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card-custom h-100">
+          <div class="card-media mb-3">
+            <img src="assets/img/151.jpg" alt="Set destacado Pokémon TCG 151"
+                 loading="lazy" decoding="async" width="600" height="400" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h3 class="h5 mb-1">Set 151</h3>
+            <span class="badge-custom">2023</span>
+          </div>
+          <p class="mb-3">Enfoque: Kanto • Cartas especiales.</p>
+          <a href="pages/sets.html" class="btn-primary-custom text-decoration-none">Ver set</a>
+        </div>
+      </article>
+
+      <article class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+        <div class="card-custom h-100">
+          <div class="card-media mb-3">
+            <img src="assets/img/protecion-tgc.webp" alt="Tip destacado sobre protección de cartas"
+                 loading="lazy" decoding="async" width="600" height="400" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h3 class="h5 mb-1">Tip: proteger cartas</h3>
+            <span class="badge-custom">Guía</span>
+          </div>
+          <p class="mb-3">Fundas, toploaders y cuidados.</p>
+          <a href="pages/comunidad.html" class="btn-primary-custom text-decoration-none">Leer</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="mb-0">Proyecto educativo • PokéCards • Pokémon TCG</p>
+</footer>
+
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const enableAOS = !isMobile && !prefersReduce;
+    if (enableAOS && window.AOS) {
+      AOS.init({ duration: 500, once: true, offset: 60 });
+      const offcanvasEl = document.getElementById("menuLateral");
+      if (offcanvasEl) offcanvasEl.addEventListener("shown.bs.offcanvas", () => AOS.refresh());
+    }
+  });
+</script>
+</body>
+</html>
