@@ -7,11 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="../css/style.css" />
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="preconnect" href="https://unpkg.com" />
 </head>
 
 <body>
@@ -51,17 +49,19 @@
 
 <main class="container">
 
-  <section class="hero mt-4 p-4 p-md-5" data-aos="fade-up">
+  <!-- HERO -->
+  <section class="hero mt-4 p-4 p-md-5">
     <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
       <div>
         <h1 class="mb-2">Catálogo de cartas</h1>
-        <p class="mb-0">Buscá por nombre y filtrá por set, tipo y rareza (funcional).</p>
+        <p class="mb-0">Buscá por nombre y filtrá por set, tipo y rareza.</p>
       </div>
       <a class="btn-primary-custom text-decoration-none" href="sets.html">Ver sets</a>
     </div>
   </section>
 
-  <section class="mt-4 filters-panel" data-aos="fade-up" data-aos-delay="100">
+  <!-- FILTROS -->
+  <section class="mt-4 filters-panel">
     <div class="row g-3 align-items-end">
 
       <div class="col-md-4">
@@ -100,7 +100,7 @@
           <button type="button" class="badge-custom filter-pill" data-rareza="comun">Común</button>
           <button type="button" class="badge-custom filter-pill" data-rareza="rara">Rara</button>
           <button type="button" class="badge-custom filter-pill" data-rareza="ultra">Ultra</button>
-          <button type="button" class="badge-custom filter-pill" data-rareza="secreta">Secreta</button>
+          <button type="button" class="badge-custom filter-pill" data-rareza="secreta">Mega Ex</button>
         </div>
       </div>
     </div>
@@ -121,253 +121,172 @@
     </div>
   </section>
 
-  <section class="mt-4" data-aos="fade-up">
+  <!-- GRID DE CARTAS (CON MARCO FIX) -->
+  <section class="mt-4">
     <div class="row g-4">
 
       <!-- SV151 -->
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="pikachu" data-tipo="electrico" data-rareza="rara" data-set="sv151">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb"
-               src="../assets/img/pikachu151.jpg.png"
-               alt="Miniatura Pikachu" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Pikachu</h2><span class="badge-custom">Rara</span>
-          <p class="mb-3">Tipo: Eléctrico • Set: 151</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Pikachu" data-type="Eléctrico" data-setname="151" data-rareza="Rara"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/pikachu151.jpg.png" alt="Pikachu" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Pikachu</h2><span class="badge-custom">Rara</span>
+          </div>
+          <p class="mb-0">Tipo: Eléctrico • Set: 151</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="charizard" data-tipo="fuego" data-rareza="ultra" data-set="sv151">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb"
-               src="../assets/img/charizard151.jpg"
-               alt="Miniatura Charizard" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Charizard</h2><span class="badge-custom">Ultra</span>
-          <p class="mb-3">Tipo: Fuego • Set: 151</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Charizard" data-type="Fuego" data-setname="151" data-rareza="Ultra"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/charizard151.jpg" alt="Charizard" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Charizard</h2><span class="badge-custom">Ultra</span>
+          </div>
+          <p class="mb-0">Tipo: Fuego • Set: 151</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="mew" data-tipo="psiquico" data-rareza="secreta" data-set="sv151">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb"
-               src="../assets/img/new151.jpg"
-               alt="Miniatura Mew" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Mew</h2><span class="badge-custom">Secreta</span>
-          <p class="mb-3">Tipo: Psíquico • Set: 151</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Mew" data-type="Psíquico" data-setname="151" data-rareza="Secreta"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/new151.jpg" alt="Mew" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Mew</h2><span class="badge-custom">Secreta</span>
+          </div>
+          <p class="mb-0">Tipo: Psíquico • Set: 151</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="bulbasaur" data-tipo="planta" data-rareza="comun" data-set="sv151">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb"
-               src="../assets/img/bulbasaur151.jpg"
-               alt="Miniatura Bulbasaur" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Bulbasaur</h2><span class="badge-custom">Común</span>
-          <p class="mb-3">Tipo: Planta • Set: 151</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Bulbasaur" data-type="Planta" data-setname="151" data-rareza="Común"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/bulbasaur151.jpg" alt="Bulbasaur" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Bulbasaur</h2><span class="badge-custom">Común</span>
+          </div>
+          <p class="mb-0">Tipo: Planta • Set: 151</p>
         </div>
       </article>
 
       <!-- Paldea -->
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="miraidon" data-tipo="electrico" data-rareza="ultra" data-set="paldea">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb" src="../assets/img/miraidon.jpg" alt="Miniatura Miraidon" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Miraidon</h2><span class="badge-custom">Ultra</span>
-          <p class="mb-3">Tipo: Eléctrico • Set: Paldea Evolved</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Miraidon" data-type="Eléctrico" data-setname="Paldea Evolved" data-rareza="Ultra"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/miraidon.jpg" alt="Miraidon" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Miraidon</h2><span class="badge-custom">Ultra</span>
+          </div>
+          <p class="mb-0">Tipo: Eléctrico • Set: Paldea Evolved</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="koraidon" data-tipo="lucha" data-rareza="ultra" data-set="paldea">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb" src="../assets/img/koraidon.jpg" alt="Miniatura Koraidon" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Koraidon</h2><span class="badge-custom">Ultra</span>
-          <p class="mb-3">Tipo: Lucha • Set: Paldea Evolved</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Koraidon" data-type="Lucha" data-setname="Paldea Evolved" data-rareza="Ultra"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/koraidon.jpg" alt="Koraidon" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Koraidon</h2><span class="badge-custom">Ultra</span>
+          </div>
+          <p class="mb-0">Tipo: Lucha • Set: Paldea Evolved</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="tinkaton" data-tipo="metal" data-rareza="rara" data-set="paldea">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb" src="../assets/img/tinkaton.jpg" alt="Miniatura Tinkaton" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Tinkaton</h2><span class="badge-custom">Rara</span>
-          <p class="mb-3">Tipo: Metal • Set: Paldea Evolved</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Tinkaton" data-type="Metal" data-setname="Paldea Evolved" data-rareza="Rara"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/tinkaton.jpg" alt="Tinkaton" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Tinkaton</h2><span class="badge-custom">Rara</span>
+          </div>
+          <p class="mb-0">Tipo: Metal • Set: Paldea Evolved</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="sprigatito" data-tipo="planta" data-rareza="comun" data-set="paldea">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb" src="../assets/img/sprigatito.jpg" alt="Miniatura Sprigatito" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Sprigatito</h2><span class="badge-custom">Común</span>
-          <p class="mb-3">Tipo: Planta • Set: Paldea Evolved</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Sprigatito" data-type="Planta" data-setname="Paldea Evolved" data-rareza="Común"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/sprigatito.jpg" alt="Sprigatito" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Sprigatito</h2><span class="badge-custom">Común</span>
+          </div>
+          <p class="mb-0">Tipo: Planta • Set: Paldea Evolved</p>
         </div>
       </article>
 
       <!-- Crown -->
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="zacian" data-tipo="metal" data-rareza="ultra" data-set="crown">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb" src="../assets/img/zacian.jpg" alt="Miniatura Zacian" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Zacian</h2><span class="badge-custom">Ultra</span>
-          <p class="mb-3">Tipo: Metal • Set: Crown Zenith</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Zacian" data-type="Metal" data-setname="Crown Zenith" data-rareza="Ultra"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/zacian.jpg" alt="Zacian" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Zacian</h2><span class="badge-custom">Ultra</span>
+          </div>
+          <p class="mb-0">Tipo: Metal • Set: Crown Zenith</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="rayquaza" data-tipo="dragon" data-rareza="ultra" data-set="crown">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb" src="../assets/img/rayquaza.jpg" alt="Miniatura Rayquaza" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Rayquaza</h2><span class="badge-custom">Ultra</span>
-          <p class="mb-3">Tipo: Dragón • Set: Crown Zenith</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Rayquaza" data-type="Dragón" data-setname="Crown Zenith" data-rareza="Ultra"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/rayquaza.jpg" alt="Rayquaza" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Rayquaza</h2><span class="badge-custom">Ultra</span>
+          </div>
+          <p class="mb-0">Tipo: Dragón • Set: Crown Zenith</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="leafeon" data-tipo="planta" data-rareza="rara" data-set="crown">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb" src="../assets/img/laefon.jpg" alt="Miniatura Leafeon" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Leafeon</h2><span class="badge-custom">Rara</span>
-          <p class="mb-3">Tipo: Planta • Set: Crown Zenith</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Leafeon" data-type="Planta" data-setname="Crown Zenith" data-rareza="Rara"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/laefon.jpg" alt="Leafeon" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Leafeon</h2><span class="badge-custom">Rara</span>
+          </div>
+          <p class="mb-0">Tipo: Planta • Set: Crown Zenith</p>
         </div>
       </article>
 
       <article class="col-12 col-sm-6 col-lg-3 card-item" data-name="mewtwo" data-tipo="psiquico" data-rareza="rara" data-set="crown">
         <div class="card-custom h-100">
-          <img class="card-thumb mb-3 js-thumb" src="../assets/img/newtwo.jpg" alt="Miniatura Mewtwo" loading="lazy" decoding="async" width="600" height="400" />
-          <h2 class="h5 mb-1">Mewtwo</h2><span class="badge-custom">Rara</span>
-          <p class="mb-3">Tipo: Psíquico • Set: Crown Zenith</p>
-          <button type="button" class="btn-primary-custom btn-detail"
-                  data-bs-toggle="modal" data-bs-target="#cardModal"
-                  data-name="Mewtwo" data-type="Psíquico" data-setname="Crown Zenith" data-rareza="Rara"
-                  data-img="">
-            Ver detalle
-          </button>
+          <div class="card-frame mb-3">
+            <img class="card-thumb js-thumb" src="../assets/img/newtwo.jpg" alt="Mewtwo" loading="lazy" decoding="async" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start">
+            <h2 class="h5 mb-1">Mewtwo</h2><span class="badge-custom">Rara</span>
+          </div>
+          <p class="mb-0">Tipo: Psíquico • Set: Crown Zenith</p>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- MODAL DETALLE -->
-  <div class="modal fade" id="cardModal"
-      tabindex="-1" aria-hidden="true"
-      data-bs-backdrop="true" data-bs-keyboard="true"
-      data-bs-focus="false">
-
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-card">
-      <div class="modal-content modal-dark">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle">Detalle</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-
-        <div class="modal-body">
-          <img id="modalImg"
-               class="modal-card-img mb-3"
-               alt="Carta en grande"
-               loading="lazy"
-               decoding="async"
-               width="900"
-               height="600" />
-
-          <div class="card-custom h-100 mb-0">
-            <h2 class="h5 mb-1" id="modalName">—</h2>
-            <span class="badge-custom" id="modalRareza">—</span>
-            <p class="mb-0 mt-2" id="modalMeta">—</p>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </main>
 
 <footer>
-  <p class="mb-0">Proyecto educativo • PokéCards • Pokémon TCG</p>
+  <p class="mb-0">Proyecto Final GZ • PokéCards • Pokémon TCG</p>
 </footer>
 
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script defer src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // AOS solo desktop
-    const enableAOS = !isMobile && !prefersReduce;
-    if (enableAOS && window.AOS) {
-      AOS.init({ duration: 500, once: true, offset: 60 });
-    }
-
-    const offcanvasEl = document.getElementById("menuLateral");
-    if (offcanvasEl && enableAOS) {
-      offcanvasEl.addEventListener("shown.bs.offcanvas", () => AOS.refresh());
-    }
-
-    // Placeholder embebido
+    // Placeholder para imágenes rotas
     const PLACEHOLDER = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
       <svg xmlns='http://www.w3.org/2000/svg' width='900' height='600'>
         <defs>
@@ -379,11 +298,9 @@
         <rect width='100%' height='100%' fill='url(#g)'/>
         <circle cx='450' cy='270' r='60' fill='rgba(255,255,255,0.10)'/>
         <text x='50%' y='55%' fill='rgba(255,255,255,0.75)' font-family='system-ui,Segoe UI,Roboto,Arial' font-size='34' text-anchor='middle'>Imagen no cargada</text>
-        <text x='50%' y='62%' fill='rgba(255,255,255,0.45)' font-family='system-ui,Segoe UI,Roboto,Arial' font-size='18' text-anchor='middle'>(Placeholder)</text>
       </svg>
     `)}`;
 
-    // Miniaturas: si src vacío o falla => placeholder
     document.querySelectorAll(".js-thumb").forEach(img => {
       const src = (img.getAttribute("src") || "").trim();
       if (!src) img.src = PLACEHOLDER;
@@ -456,6 +373,7 @@
       applyFilters();
     });
 
+    // Set desde URL (desde sets.html?set=...)
     const params = new URLSearchParams(window.location.search);
     const setFromUrl = params.get("set");
     if (setFromUrl) {
@@ -482,42 +400,32 @@
       applyFilters();
     });
 
-    // ✅ MODAL: cargar contenido SOLO en show.bs.modal (Bootstrap maneja cerrar/abrir)
-    const modalEl = document.getElementById("cardModal");
-    const modalTitle  = document.getElementById("modalTitle");
-    const modalName   = document.getElementById("modalName");
-    const modalRareza = document.getElementById("modalRareza");
-    const modalMeta   = document.getElementById("modalMeta");
-    const modalImg    = document.getElementById("modalImg");
-
-    modalEl?.addEventListener("show.bs.modal", (ev) => {
-      const btn = ev.relatedTarget;
-      if (!btn) return;
-
-      const card = btn.closest(".card-custom");
-      const thumb = card?.querySelector("img.js-thumb");
-
-      const name = btn.dataset.name || "—";
-      const type = btn.dataset.type || "—";
-      const set  = btn.dataset.setname || "—";
-      const rar  = btn.dataset.rareza || "—";
-
-      const imgFromBtn = (btn.dataset.img || "").trim();
-      const imgFromThumb = (thumb?.getAttribute("src") || "").trim();
-      const imgSrc = imgFromBtn || imgFromThumb || PLACEHOLDER;
-
-      modalTitle.textContent = name;
-      modalName.textContent = name;
-      modalRareza.textContent = rar;
-      modalMeta.textContent = `Tipo: ${type} • Set: ${set}`;
-
-      modalImg.src = imgSrc;
-      modalImg.alt = `Carta ${name} en grande`;
-      modalImg.onerror = () => { modalImg.src = PLACEHOLDER; };
-    });
-
     applyFilters();
   });
+</script>
+<!-- PARALLAX (mobile + desktop) -->
+<script>
+  (function () {
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduce) return;
+
+    const SPEED = 0.18;
+    let raf = null;
+
+    function update(){
+      raf = null;
+      const y = window.scrollY || 0;
+      document.documentElement.style.setProperty("--parallaxY", (-y * SPEED) + "px");
+    }
+
+    function onScroll(){
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+  })();
 </script>
 
 </body>

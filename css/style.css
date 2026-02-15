@@ -1,30 +1,40 @@
-/* =========================
-FILE: css/style.css (COMPLETO + LIMPIO + MOBILE OK)
-- Mantiene look desktop
-- Mobile optimizado (solo @media)
-- Modal prolijo: imagen completa y fluida
-========================= */
 @charset "UTF-8";
 
-/* --- Reset --- */
-*{ margin:0; padding:0; box-sizing:border-box; }
-html, body{ height:100%; }
-img{ max-width:100%; display:block; }
-
-main{ padding:2rem 0; position:relative; z-index:1; }
-
-footer{
-  background: transparent;
-  padding: 2rem;
-  text-align: center;
-  margin-top: 3rem;
+/* =========================
+   RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* =========================================================
-   FONDO GLOBAL (imagen + overlay)
-   ========================================================= */
+html, body{
+  height:100%;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+main{
+  padding:2rem 0;
+  position:relative;
+  z-index:1;
+}
+
+footer{
+  background:transparent;
+  padding:2rem;
+  text-align:center;
+  margin-top:3rem;
+}
+
+/* =========================
+   FONDO GLOBAL
+========================= */
 body{
-  margin:0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
   color:#f0f6fc;
 
@@ -32,406 +42,414 @@ body{
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
+  background-attachment:scroll;
 
-  background-attachment: fixed; /* desktop */
   min-height:100vh;
 }
 
-/* Overlay suave */
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  background: rgba(10, 12, 16, 0.18);
+  background:rgba(10,12,16,.25);
   z-index:-1;
 }
 
-/* Blur liviano SOLO si está soportado */
-@supports (backdrop-filter: blur(1px)){
-  body::before{
-    backdrop-filter: blur(1px);
-    -webkit-backdrop-filter: blur(1px);
-  }
-}
-
-/* =========================================================
+/* =========================
    NAVBAR
-   ========================================================= */
+========================= */
 header{
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: transparent;
-  padding-top: .6rem;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .navbar{
-  padding: .6rem 1rem;
-  background: rgba(18, 20, 26, 0.22);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
-  box-shadow: 0 8px 26px rgba(0,0,0,0.25);
-}
-
-@supports (backdrop-filter: blur(1px)){
-  .navbar{
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
+  padding:.6rem 1rem;
+  background:rgba(18,20,26,.45);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
 }
 
 .navbar-brand{
-  font-weight: 800;
-  letter-spacing: .4px;
-  color: #fff;
+  font-weight:800;
+  color:#fff;
 }
 
 .navbar-nav .nav-link{
-  font-size: 1.05rem;
-  color: rgba(255,255,255,0.78);
-  font-weight: 600;
-  padding: .45rem .75rem;
-  border-radius: 12px;
-  transition: background .15s ease, color .15s ease;
-}
-
-.navbar-nav .nav-link:hover{
-  color:#fff;
-  background: rgba(255,255,255,0.07);
+  font-weight:600;
+  color:rgba(255,255,255,.8);
 }
 
 .navbar-nav .nav-link.active{
   color:#f3c316;
-  background: transparent;
 }
 
-.navbar-toggler{ border:none; box-shadow:none; }
-.navbar-toggler-icon{ opacity:.95; filter: brightness(1.1); }
-
-/* =========================================================
-   COMPONENTES GLASS (hero, cards, inputs)
-   ========================================================= */
+/* =========================
+   HERO
+========================= */
 .hero,
 .hero-banner{
-  background: rgba(18, 20, 26, 0.30);
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 3rem;
+  background:rgba(18,20,26,.55);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
+  padding:3rem;
 }
 
-@supports (backdrop-filter: blur(1px)){
-  .hero,
-  .hero-banner{
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-}
-
+/* =========================
+   CARD BASE
+========================= */
 .card-custom{
-  background: rgba(10, 12, 16, 0.75);
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.06);
-  padding: 1rem;
+  background:rgba(10,12,16,.85);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
+  padding:1rem;
   display:flex;
   flex-direction:column;
   height:100%;
-  transition: transform .18s ease, box-shadow .18s ease;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.20);
+  transition:.25s ease;
 }
 
-@supports (backdrop-filter: blur(1px)){
-  .card-custom{
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
+.card-custom:hover{
+  transform:translateY(-6px);
+  border-color:rgba(243,195,22,.45);
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
 }
 
-@media (hover:hover) and (pointer:fine){
-  .card-custom:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 14px 34px rgba(0,0,0,0.28);
-  }
+.card-custom p{
+  color:rgba(255,255,255,.78);
 }
 
-.card-custom p{ color: rgba(255,255,255,0.78); }
+/* =========================
+   MARCO PERFECTO CARTAS
+========================= */
+.card-frame{
 
-/* badges */
+  width:100%;
+
+  /* proporción real carta Pokémon */
+  aspect-ratio:63 / 88;
+
+  border-radius:16px;
+
+  padding:6px;
+
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.10),
+    rgba(255,255,255,.02)
+  );
+
+  border:1px solid rgba(255,255,255,.14);
+
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* imagen llena el marco perfecto */
+.card-thumb{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+  object-position:center;
+
+  border-radius:12px;
+
+  filter:drop-shadow(0 16px 26px rgba(0,0,0,.55));
+
+  transition:.25s ease;
+}
+
+.card-custom:hover .card-thumb{
+  transform:scale(1.04);
+}
+
+/* =========================
+   BADGES
+========================= */
 .badge-custom{
-  background: rgba(255,255,255,0.10);
-  padding: .3rem .65rem;
-  border-radius: 999px;
-  font-size: .82rem;
-  color: rgba(255,255,255,0.90);
-  border: 1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,.10);
+  padding:.3rem .65rem;
+  border-radius:999px;
+  font-size:.82rem;
+  border:1px solid rgba(255,255,255,.10);
 }
 
-/* Botones */
+/* =========================
+   BOTONES
+========================= */
 .btn-primary-custom{
-  background: rgba(243,195,22,0.95);
+  background:#f3c316;
   color:#161616;
   border:none;
   padding:.55rem 1.6rem;
   border-radius:12px;
   font-weight:800;
-  width: fit-content;
-  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
-  box-shadow: 0 8px 18px rgba(243,195,22,0.18);
   margin-top:auto;
 }
+
 .btn-primary-custom:hover{
-  filter: brightness(1.05);
-  transform: translateY(-1px);
+  filter:brightness(1.08);
 }
 
-/* Inputs */
-.input-dark{
-  background: rgba(18, 20, 26, 0.35);
-  border: 1px solid rgba(255,255,255,0.14);
-  color:#f0f6fc;
-}
-@supports (backdrop-filter: blur(1px)){
-  .input-dark{
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-}
-.input-dark::placeholder{ color: rgba(255,255,255,0.55); }
-
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:1rem;
-}
-
-/* Links suaves */
-.link-soft{
-  color: rgba(255,255,255,0.78);
-  text-decoration:none;
-  font-weight:700;
-  padding:.15rem .35rem;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,0.08);
-  background: rgba(18,20,26,0.30);
-}
-.link-soft:hover{ color:#fff; background: rgba(255,255,255,0.08); }
-
-/* Pills */
-.pill{
-  display:inline-flex;
-  align-items:center;
-  gap:.35rem;
-  padding:.28rem .7rem;
-  border-radius:999px;
-  font-weight:800;
-  font-size:.9rem;
-  background: rgba(18,20,26,0.40);
-  border:1px solid rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.92);
-}
-
-/* =========================================================
-   IMÁGENES (INDEX + GRID)
-   ========================================================= */
-.card-media{
-  width:100%;
-  height: 260px;
-  border-radius:14px;
-  overflow:hidden;
-  background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  display:grid;
-  place-items:center;
-}
-.card-media > img{
-  width:100%;
-  height:100%;
-  object-fit: contain;
-}
-
-/* Miniaturas cartas (cartas.html) */
-.card-thumb{
-  width:100%;
-  height:260px;
-  border-radius:14px;
-  overflow:hidden;
-  background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  object-fit: contain;
-}
-
-/* Hover suave solo desktop */
-@media (hover:hover) and (pointer:fine){
-  .card-media > img{ transition: transform .18s ease, filter .18s ease; }
-  .card-custom:hover .card-media > img{
-    filter: brightness(1.03);
-    transform: scale(1.01);
-  }
-}
-
-/* =========================================================
-   FILTROS (cartas.html)
-   ========================================================= */
+/* =========================
+   FILTROS
+========================= */
 .filters-panel{
-  background: rgba(12, 14, 18, 0.55);
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-@supports (backdrop-filter: blur(1px)){
-  .filters-panel{
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-}
-.form-label{
-  color: rgba(255,255,255,0.88);
-  font-weight:700;
-}
-.form-select.input-dark,
-.form-select{
-  background: rgba(18,20,26,0.85);
-  color:#fff;
-  border: 1px solid rgba(255,255,255,0.15);
+  background:rgba(12,14,18,.75);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
+  padding:1.5rem;
+  margin-bottom:1.5rem;
 }
 
 .filter-pill{
-  border:0;
   cursor:pointer;
-  background: rgba(18,20,26,0.75);
-  color: rgba(255,255,255,0.88);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: .35rem .7rem;
+  background:rgba(18,20,26,.75);
+  border:1px solid rgba(255,255,255,.12);
+  padding:.35rem .7rem;
   border-radius:999px;
-  transition: background .15s ease, outline .15s ease, transform .12s ease;
-}
-.filter-pill:hover{
-  background: rgba(255,255,255,0.12);
-  color:#fff;
-  transform: translateY(-1px);
-}
-.filter-pill.is-active{
-  background: rgba(243,195,22,0.25);
-  outline: 2px solid rgba(243,195,22,0.55);
-  color:#fff;
-}
-.filters-meta{
-  color: rgba(255,255,255,0.75);
-  font-weight:700;
-  font-size:.95rem;
-}
-.btn-soft{
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(18,20,26,0.55);
-  color: rgba(255,255,255,0.85);
-  padding: .35rem .7rem;
-  border-radius: 12px;
-  font-weight:700;
-  transition: background .15s ease, transform .12s ease;
-}
-.btn-soft:hover{
-  background: rgba(255,255,255,0.10);
-  transform: translateY(-1px);
+  transition:.2s;
 }
 
-/* =========================================================
-   MODAL (Bootstrap) — estable (sin “trabas”)
-   ========================================================= */
-.modal-dark{
-  background: rgba(18, 20, 26, 0.92);
-  color:#fff;
-  border: 1px solid rgba(255,255,255,0.10);
+.filter-pill:hover{
+  border-color:rgba(243,195,22,.6);
 }
-.modal-card{ max-width: 560px; }
+
+.filter-pill.is-active{
+  background:rgba(243,195,22,.25);
+  outline:2px solid rgba(243,195,22,.55);
+}
+
+/* =========================
+   MODAL
+========================= */
+.modal{
+  z-index:2050 !important;
+}
+
+.modal-backdrop{
+  z-index:2040 !important;
+}
+
+.modal-dark{
+  background:rgba(18,20,26,.96);
+  color:#fff;
+}
+
+.modal-card{
+  max-width:560px;
+}
 
 .modal-card-img{
-  width: 100%;
-  max-height: 70vh;
-  height: auto;
-  object-fit: contain;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  width:100%;
+  max-height:70vh;
+  object-fit:contain;
+  border-radius:16px;
 }
 
-/* Capas correctas */
-.modal{ z-index:2050 !important; }
-.modal-backdrop{ z-index:2040 !important; }
-.modal-backdrop.show{ opacity:0.65; }
+.modal-open{
+  overflow:auto !important;
+  padding-right:0 !important;
+}
 
-/* En mobile: que el modal entre bien y sea scrollable */
-@media (max-width: 768px){
-  .modal-dialog{ margin: .75rem; }
+/* =========================
+   MOBILE
+========================= */
+@media (max-width:768px){
+
+  main{
+    padding:1.2rem 0;
+  }
+
+  .hero,
+  .hero-banner{
+    padding:1.2rem;
+  }
+
+  .card-frame{
+    padding:4px;
+  }
+
+  .card-custom:hover{
+    transform:none;
+  }
+
+  .modal-dialog{
+    margin:.75rem;
+  }
 
   .modal-content{
-    max-height: calc(100vh - 1.5rem);
-    overflow: hidden;
+    max-height:calc(100vh - 1.5rem);
   }
 
   .modal-body{
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
-/* =========================================================
-   LISTAS (comunidad)
-   ========================================================= */
-.steps-list{ margin-left: 1.2rem; }
-.steps-list li{ margin-bottom:.6rem; line-height:1.45; }
-
-/* =========================================================
-   FALLBACK sin blur
-   ========================================================= */
-@supports not (backdrop-filter: blur(1px)){
-  .navbar, .card-custom, .hero, .hero-banner, .input-dark, .filters-panel{
-    background: rgba(18,20,26,0.55);
-  }
-}
-
-/* =========================================================
-   PERFORMANCE + BACKGROUND RESPONSIVE (MOBILE/TABLET)
-   ========================================================= */
-@media (max-width: 768px){
-  body{
-    background-attachment: scroll !important;
-    background-position: 70% center;
-  }
-  body::before{
-    background: rgba(10, 12, 16, 0.30);
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-  .navbar, .card-custom, .hero, .hero-banner, .input-dark, .filters-panel{
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
   }
 
-  main{ padding: 1.25rem 0; }
-  .hero, .hero-banner{ padding: 1.25rem; }
-
-  .row{ --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
-
-  .card-media{ height: clamp(190px, 58vw, 260px); }
-  .card-thumb{ height: clamp(190px, 58vw, 260px); }
-
-  .btn-primary-custom{ padding: .5rem 1.2rem; }
-}
-
-@media (min-width: 769px) and (max-width: 1024px){
-  body{ background-position: 60% center; }
-}
-
-/* =========================================================
-   FIX: si AOS NO se inicializa (mobile), que no oculte nada
-   ========================================================= */
-@media (max-width: 768px){
   [data-aos]{
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+    opacity:1 !important;
+    transform:none !important;
   }
+
+}
+/* =========================
+   FILTROS - MÁS CLARO / PRO
+========================= */
+
+/* Panel tipo glass claro */
+.filters-panel{
+  background: rgba(55, 54, 5, 0.08) !important;
+  border: 1px solid rgba(25, 203, 34, 0.16) !important;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 14px 38px rgba(0,0,0,.35);
+}
+
+/* Títulos/labels más visibles */
+.filters-panel .form-label,
+.filters-panel label{
+  color: rgba(255,255,255,.92) !important;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+/* Texto auxiliar (Mostrando: X) */
+.filters-meta{
+  color: rgba(255,255,255,.85) !important;
+  font-weight: 700;
+}
+
+/* Inputs / selects más pro */
+.input-dark,
+.filters-panel .form-control,
+.filters-panel .form-select{
+  background: rgba(10,12,16,.55) !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  color: #fff !important;
+  border-radius: 14px !important;
+  padding: .7rem .9rem;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+.input-dark::placeholder,
+.filters-panel .form-control::placeholder{
+  color: rgba(255,255,255,.55) !important;
+}
+
+/* Foco dorado (queda re lindo) */
+.input-dark:focus,
+.filters-panel .form-control:focus,
+.filters-panel .form-select:focus{
+  border-color: rgba(243,195,22,.75) !important;
+  box-shadow: 0 0 0 .22rem rgba(243,195,22,.18) !important;
+  outline: none;
+}
+
+/* Pills (rareza / set) más claras y legibles */
+.filter-pill{
+  background: rgba(10,12,16,.45) !important;
+  border: 1px solid rgba(255,255,255,.18) !important;
+  color: rgba(255,255,255,.90) !important;
+  font-weight: 800;
+  padding: .42rem .85rem;
+  border-radius: 999px;
+  transition: .18s ease;
+}
+
+.filter-pill:hover{
+  transform: translateY(-1px);
+  border-color: rgba(243,195,22,.55) !important;
+  box-shadow: 0 10px 18px rgba(0,0,0,.25);
+}
+
+.filter-pill.is-active{
+  background: rgba(243,195,22,.22) !important;
+  border-color: rgba(243,195,22,.75) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(243,195,22,.18);
+}
+
+/* Botón "Limpiar filtros" más lindo */
+.btn-soft{
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.16);
+  color: rgba(255,255,255,.92);
+  padding: .55rem .95rem;
+  border-radius: 12px;
+  font-weight: 800;
+  transition: .18s ease;
+}
+
+.btn-soft:hover{
+  border-color: rgba(243,195,22,.55);
+  transform: translateY(-1px);
+}
+/* =========================
+   FONDO PARALLAX
+========================= */
+
+body{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+  color:#f0f6fc;
+
+  background-image:url("../assets/img/pikachu-bg.jpg");
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:cover;
+
+  /* EFECTO PARALLAX */
+  background-attachment: fixed;
+
+  min-height:200vh; /* asegura scroll */
+}
+
+/* overlay oscuro */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(10,12,16,.25);
+  z-index:-1;
+  pointer-events:none;
+}
+@media (max-width:768px){
+
+  body{
+    background-attachment: scroll;
+  }
+
+}
+/* === PARALLAX REAL (funciona en mobile) === */
+body{
+  background: none !important; /* apagamos el background normal */
+}
+
+/* Fondo fijo */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("../assets/img/pikachu-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
+
+/* tu overlay (dejalo, pero aseguramos capas) */
+body::before{
+  z-index: -1 !important;
+  pointer-events:none;
 }

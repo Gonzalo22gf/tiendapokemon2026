@@ -134,7 +134,7 @@ FILE: pages/comunidad.html (COMPLETO + MÁS FLUIDO)
 </main>
 
 <footer>
-  <p class="mb-0">Proyecto educativo • PokéCards • Pokémon TCG</p>
+  <p class="mb-0">Proyecto Final GZ • PokéCards • Pokémon TCG</p>
 </footer>
 
 <!-- JS -->
@@ -160,6 +160,30 @@ FILE: pages/comunidad.html (COMPLETO + MÁS FLUIDO)
       if (offcanvasEl) offcanvasEl.addEventListener("shown.bs.offcanvas", () => AOS.refresh());
     }
   });
+</script>
+<!-- PARALLAX (mobile + desktop) -->
+<script>
+  (function () {
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduce) return;
+
+    const SPEED = 0.18;
+    let raf = null;
+
+    function update(){
+      raf = null;
+      const y = window.scrollY || 0;
+      document.documentElement.style.setProperty("--parallaxY", (-y * SPEED) + "px");
+    }
+
+    function onScroll(){
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+  })();
 </script>
 
 </body>

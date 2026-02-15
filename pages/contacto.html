@@ -64,9 +64,8 @@ FILE: pages/contacto.html (COMPLETO + SIMPLE + PROLIJO)
     <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
       <div>
         <h1 class="mb-2">Contacto</h1>
-        <p class="mb-0">Consultas sobre cartas, sets, cuidado y eventos. (Demo / proyecto educativo)</p>
+        <p class="mb-0">Consultas sobre cartas, sets, cuidado y eventos.</p>
       </div>
-      <span class="badge-custom">Respuesta demo</span>
     </div>
   </section>
 
@@ -117,11 +116,17 @@ FILE: pages/contacto.html (COMPLETO + SIMPLE + PROLIJO)
       <div class="col-12 col-lg-5">
         <div class="card-custom h-100" data-aos="fade-up" data-aos-delay="160">
           <h2 class="h4 mb-2">Info rápida</h2>
-          <p class="mb-3">Esto es un formulario demo. Si querés que realmente envíe mensajes, te armo:</p>
+          <p class="mb-3">¿Tenés una carta que querés tasar, buscar o vender?
+Escribinos por correo con el nombre de la carta, set, número, estado (NM/LP/MP/HP) y, si podés, 2–3 fotos (frente/trasera). Te respondemos con una orientación y recomendaciones de cuidado.</p>
           <ul class="steps-list">
-            <li>Opción 1: Mailto (abre tu Gmail).</li>
-            <li>Opción 2: Formspree / Getform (sin backend).</li>
-            <li>Opción 3: Backend propio (Node/PHP) + BD.</li>
+            <li>Centro de Investigación PokéCards
+Reportá avistamientos de cartas raras, cambios de set y dudas de colección. Enviá tu consulta por mail con detalles y fotos para que podamos analizarla como corresponde.</li>
+            <li>Contactanos por correo
+¿Buscás una carta específica o querés revisar tu colección? Mandanos un mail con los datos y te respondemos.</li>
+            <li>¿Trade, compra o consulta?
+Escribinos por mail y contanos qué carta tenés (o cuál buscás). Si adjuntás fotos y estado, te respondemos más rápido.</li>
+            <li>Atención por correo (Pokémon TCG)
+Consultas sobre cartas, sets, protección de colección y recomendaciones. Respondemos en orden de llegada.</li>
           </ul>
 
           <div class="d-flex flex-wrap gap-2 mt-auto">
@@ -137,7 +142,7 @@ FILE: pages/contacto.html (COMPLETO + SIMPLE + PROLIJO)
 </main>
 
 <footer>
-  <p class="mb-0">Proyecto educativo • PokéCards • Pokémon TCG</p>
+  <p class="mb-0">Proyecto Final GZ• PokéCards • Pokémon TCG</p>
 </footer>
 
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -170,6 +175,30 @@ FILE: pages/contacto.html (COMPLETO + SIMPLE + PROLIJO)
       form.reset();
     });
   });
+</script>
+<!-- PARALLAX (mobile + desktop) -->
+<script>
+  (function () {
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduce) return;
+
+    const SPEED = 0.18;
+    let raf = null;
+
+    function update(){
+      raf = null;
+      const y = window.scrollY || 0;
+      document.documentElement.style.setProperty("--parallaxY", (-y * SPEED) + "px");
+    }
+
+    function onScroll(){
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+  })();
 </script>
 
 </body>

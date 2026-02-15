@@ -74,7 +74,8 @@
   <section class="hero mt-4 p-4 p-md-5 sets-narrow" data-aos="fade-up">
     <div>
       <h1 class="mb-2">Sets y expansiones</h1>
-      <p class="mb-0">Colecciones destacadas con una descripción breve para mejorar SEO y navegación.</p>
+      <p class="mb-0">El Set es la Temporada completa.
+La Expansión es cada uno de los Episodios nuevos que van saliendo.</p>
     </div>
   </section>
 
@@ -129,7 +130,7 @@
 </main>
 
 <footer>
-  <p class="mb-0">Proyecto educativo • PokéCards • Pokémon TCG</p>
+  <p class="mb-0">Proyecto Final GZ • PokéCards • Pokémon TCG</p>
 </footer>
 
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -147,5 +148,54 @@
     }
   });
 </script>
+<!-- PARALLAX (mobile + desktop) -->
+<script>
+  (function () {
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduce) return;
+
+    const SPEED = 0.18;
+    let raf = null;
+
+    function update(){
+      raf = null;
+      const y = window.scrollY || 0;
+      document.documentElement.style.setProperty("--parallaxY", (-y * SPEED) + "px");
+    }
+
+    function onScroll(){
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+  })();
+</script>
+<!-- PARALLAX (mobile + desktop) -->
+<script>
+  (function () {
+    const prefersReduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduce) return;
+
+    const SPEED = 0.18;
+    let raf = null;
+
+    function update(){
+      raf = null;
+      const y = window.scrollY || 0;
+      document.documentElement.style.setProperty("--parallaxY", (-y * SPEED) + "px");
+    }
+
+    function onScroll(){
+      if (raf) return;
+      raf = requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+  })();
+</script>
+
 </body>
 </html>
