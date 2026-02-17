@@ -1,20 +1,173 @@
-header {
-  background: $bg-card;
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-main {
+.navbar{
+
+  padding:.6rem 1rem;
+
+  background:rgba(18,20,26,.45);
+
+  border:1px solid $border;
+
+  border-radius:$radius;
+
+}
+
+main{
+  padding:2rem 0;
+  position:relative;
+  z-index:1;
+}
+
+footer{
+  background:transparent;
+  padding:2rem;
+  text-align:center;
+  margin-top:3rem;
+}
+
+/* HERO */
+
+.hero,
+.hero-banner{
+
+  background:$glass;
+
+  border-radius:$radius;
+
+  border:1px solid $border;
+
+  padding:3rem;
+
+}
+
+/* MOBILE */
+
+@media (max-width:$bp-md){
+
+  main{
+    padding:1.2rem 0;
+  }
+
+  .hero,
+  .hero-banner{
+    padding:1.2rem;
+  }
+
+}
+header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ✅ Importante: scope SOLO al navbar del header (no pisa offcanvas raro) */
+header .navbar{
+  padding: .6rem 1rem;
+  background: rgba(18,20,26,.45);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+}
+
+.navbar-brand{
+  font-weight: 800;
+  color: #fff;
+}
+
+.navbar-nav .nav-link{
+  font-weight: 600;
+  color: rgba(255,255,255,.8);
+}
+.navbar-nav .nav-link.active{
+  color: #f3c316;
+}
+
+main{
   padding: 2rem 0;
+  position: relative;
+  z-index: 1;
 }
 
-footer {
-  background: $bg-card;
+footer{
+  background: transparent;
   padding: 2rem;
   text-align: center;
   margin-top: 3rem;
 }
 
-.hero {
-  background: linear-gradient(135deg, rgba(42,117,187,.25), rgba(255,203,5,.12));
+/* ✅ hero como tu CSS */
+.hero,
+.hero-banner{
+  background: rgba(18,20,26,.55);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
   padding: 3rem;
-  border-radius: $radius;
+}
+
+@media (max-width: 768px){
+  main{ padding: 1.2rem 0; }
+  .hero, .hero-banner{ padding: 1.2rem; }
+}
+/* =========================
+   FIX MOBILE + AOS
+========================= */
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce){
+
+  [data-aos]{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  body::after{
+    transform: none !important;
+  }
+
+}
+
+/* evitar overflow horizontal */
+html, body{
+  overflow-x: hidden;
+}
+/* ===== FIX: que el contenido se lea sobre el fondo ===== */
+
+/* superficie oscura leve para todo el contenido */
+main{
+  position: relative;
+  z-index: 1;
+}
+
+/* que los títulos no queden lavados */
+h1, h2, h3, .section-title h2, .section-title h3{
+  color: #fff;
+  text-shadow: 0 6px 18px rgba(0,0,0,.45);
+}
+
+/* restaurar “glass” en hero/banner (si algo lo pisó) */
+.hero,
+.hero-banner{
+  background: rgba(18,20,26,.55);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+}
+
+/* categorías: que se vean bien aunque el fondo sea claro */
+.section-title{
+  margin-bottom: 1rem;
+}
+
+.section-title a,
+.link-soft{
+  color: rgba(255,255,255,.9);
+}
+@media (max-width: 768px), (prefers-reduced-motion: reduce){
+  [data-aos]{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

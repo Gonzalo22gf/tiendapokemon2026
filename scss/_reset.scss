@@ -1,16 +1,125 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  font-family: system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  background-color: $bg-main;
-  color: $text-main;
+html, body{
+  height:100%;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+body{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+  color:$text-main;
+  overflow-x:hidden;
+}
+
+/* PARALLAX REAL */
+
+body{
+  background:none;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+
+  background-image:url("../assets/img/pikachu-bg.jpg");
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:cover;
+
+  transform:translate3d(0,0,0);
+  will-change:transform;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(10,12,16,.25);
+  z-index:-1;
+  pointer-events:none;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ACCESSIBILITY */
+
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:10px;
+  z-index:9999;
+  padding:10px 12px;
+  border-radius:10px;
+  background:#fff;
+  color:#000;
+  text-decoration:none;
+  font-weight:700;
+
+  &:focus{
+    left:10px;
+  }
+}
+
+/* REDUCE MOTION */
+
+@media (prefers-reduced-motion: reduce){
+
+  *{
+    animation:none !important;
+    transition:none !important;
+  }
+
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html, body{ height:100%; }
+
+body{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+  color: #f0f6fc;
+  overflow-x:hidden;
+  min-height: 100vh;
+}
+
+/* ✅ FONDO TIPO FOTO 2 (parallax real) */
+body{ background: none; }
+
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("../assets/img/pikachu-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
+
+/* overlay oscuro */
+body::before{
+  content:"";
+  position: fixed;
+  inset:0;
+  background: rgba(10,12,16,.25);
+  z-index:-1;
+  pointer-events:none;
+}
+
+img{ max-width:100%; height:auto; display:block; }
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition:none !important; }
 }
